@@ -1,0 +1,21 @@
+diff --git a/data/ogmrip.desktop b/data/ogmrip.desktop
+index 7391bbc..7f5e096 100644
+--- a/data/ogmrip.desktop
++++ b/data/ogmrip.desktop
+@@ -1,5 +1,4 @@
+ [Desktop Entry]
+-Encoding=UTF-8
+ Name=DVD Encoder OGMRip
+ Name[ca]=Codificador de DVD OGMRip
+ Name[cs]=DVD enkodér OGMRIP
+@@ -13,8 +12,8 @@ Comment[de]=Ein DVD-Ausleser für GNOME
+ Comment[fr]=Un encodeur de DVD pour GNOME
+ Comment[sv]=En dvd-kodare för GNOME
+ Exec=ogmrip
+-Icon=ogmrip.png
++Icon=ogmrip
+ StartupNotify=true
+ Terminal=false
+ Type=Application
+-Categories=GNOME;Application;AudioVideo;
++Categories=GNOME;AudioVideo;
