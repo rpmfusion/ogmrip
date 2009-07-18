@@ -1,6 +1,6 @@
 Name:           ogmrip
-Version:        0.12.3
-Release:        3%{?dist}
+Version:        0.13.0
+Release:        1%{?dist}
 Summary:        DVD ripping and encoding graphical user interface
 
 Group:          Applications/Multimedia
@@ -34,8 +34,7 @@ Requires: subtitleripper
 Requires(post): GConf2
 Requires(postun): GConf2
 
-Patch0: ogmrip-0.12.2-configure_checks.patch
-Patch1: ogmrip-0.12.3-desktop.patch
+Patch0: http://ogmrip.sourceforge.net/patches/ogmrip-0.13.0-configure.patch
 
 
 %description
@@ -63,11 +62,7 @@ Development headers and libraries for ogmrip.
 
 %prep
 %setup -q
-%patch0 -p1 -b .configure_checks
-%patch1 -p1
-# Remove -Werror since build fails because of warn_unused_result otherwise
-# %{__perl} -pi -e 's|-Wall -Werror|-Wall|g' configure*
-
+%patch0 -p0 -b .configure
 
 
 %build
@@ -123,6 +118,7 @@ fi
 %doc AUTHORS COPYING ChangeLog README TODO
 %{_sysconfdir}/gconf/schemas/ogmrip.schemas
 %{_bindir}/dvdcpy
+%{_bindir}/avibox
 %{_bindir}/ogmrip
 %{_bindir}/subp2pgm
 %{_bindir}/subp2png
@@ -145,6 +141,10 @@ fi
 
 
 %changelog
+* Fri Jul 17 2009 Gianluca Sforna <giallu gmail com> - 0.13.0-1
+- New upstream release
+- drop upstreamed patches
+
 * Mon Apr 20 2009 Gianluca Sforna <giallu gmail com> - 0.12.3-3
 - Add Requires on -devel
 - Find and remove .la files
