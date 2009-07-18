@@ -1,0 +1,13 @@
+diff --git a/libogmdvd-gtk/ogmdvd-chapter-list.h b/libogmdvd-gtk/ogmdvd-chapter-list.h
+index c9c9bf8..4543285 100644
+--- a/libogmdvd-gtk/ogmdvd-chapter-list.h
++++ b/libogmdvd-gtk/ogmdvd-chapter-list.h
+@@ -21,7 +21,7 @@
+ 
+ #include <ogmdvd.h>
+ 
+-#include <gtk/gtkcombobox.h>
++#include <gtk/gtk.h>
+ 
+ G_BEGIN_DECLS
+ 

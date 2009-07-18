@@ -1,6 +1,6 @@
 Name:           ogmrip
 Version:        0.13.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        DVD ripping and encoding graphical user interface
 
 Group:          Applications/Multimedia
@@ -35,6 +35,7 @@ Requires(post): GConf2
 Requires(postun): GConf2
 
 Patch0: http://ogmrip.sourceforge.net/patches/ogmrip-0.13.0-configure.patch
+Patch1: ogmrip-0.13.0-gtk-include.patch
 
 
 %description
@@ -63,6 +64,7 @@ Development headers and libraries for ogmrip.
 %prep
 %setup -q
 %patch0 -p0 -b .configure
+%patch1 -p1 -b .configure
 
 
 %build
@@ -141,6 +143,9 @@ fi
 
 
 %changelog
+* Sun Jul 19 2009 Gianluca Sforna <giallu gmail com> - 0.13.0-2
+* add patch to compile against gtk2-2.17.4
+
 * Fri Jul 17 2009 Gianluca Sforna <giallu gmail com> - 0.13.0-1
 - New upstream release
 - drop upstreamed patches
