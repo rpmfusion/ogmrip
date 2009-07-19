@@ -1,6 +1,6 @@
 Name:           ogmrip
 Version:        0.13.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        DVD ripping and encoding graphical user interface
 
 Group:          Applications/Multimedia
@@ -64,7 +64,7 @@ Development headers and libraries for ogmrip.
 %prep
 %setup -q
 %patch0 -p0 -b .configure
-%patch1 -p1 -b .configure
+%patch1 -p1 -b .gtk-include
 
 
 %build
@@ -143,7 +143,7 @@ fi
 
 
 %changelog
-* Sun Jul 19 2009 Gianluca Sforna <giallu gmail com> - 0.13.0-2
+* Sun Jul 19 2009 Gianluca Sforna <giallu gmail com> - 0.13.0-3
 * add patch to compile against gtk2-2.17.4
 
 * Fri Jul 17 2009 Gianluca Sforna <giallu gmail com> - 0.13.0-1
