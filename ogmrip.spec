@@ -1,6 +1,6 @@
 Name:           ogmrip
-Version:        0.13.0
-Release:        3%{?dist}
+Version:        0.13.1
+Release:        1%{?dist}
 Summary:        DVD ripping and encoding graphical user interface
 
 Group:          Applications/Multimedia
@@ -30,12 +30,10 @@ Requires: eject, mplayer, mencoder, ogmtools, vorbis-tools, theora-tools
 Requires: mkvtoolnix, lame
 Requires: gpac
 Requires: subtitleripper
+Requires: tesseract
 
 Requires(post): GConf2
 Requires(postun): GConf2
-
-Patch0: http://ogmrip.sourceforge.net/patches/ogmrip-0.13.0-configure.patch
-Patch1: ogmrip-0.13.0-gtk-include.patch
 
 
 %description
@@ -63,8 +61,6 @@ Development headers and libraries for ogmrip.
 
 %prep
 %setup -q
-%patch0 -p0 -b .configure
-%patch1 -p1 -b .gtk-include
 
 
 %build
@@ -143,8 +139,15 @@ fi
 
 
 %changelog
+* Mon Sep 21 2009 Gianluca Sforna <giallu gmail com> - 0.13.1-1
+- New upstream release
+- drop upstreamed patches
+
+* Fri Aug 14 2009 Gianluca Sforna <giallu gmail com> - 0.13.0-4
+- Require tesseract for subtitle extraction
+
 * Sun Jul 19 2009 Gianluca Sforna <giallu gmail com> - 0.13.0-3
-* add patch to compile against gtk2-2.17.4
+- add patch to compile against gtk2-2.17.4
 
 * Fri Jul 17 2009 Gianluca Sforna <giallu gmail com> - 0.13.0-1
 - New upstream release
