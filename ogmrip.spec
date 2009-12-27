@@ -1,5 +1,5 @@
 Name:           ogmrip
-Version:        0.13.1
+Version:        0.13.3
 Release:        1%{?dist}
 Summary:        DVD ripping and encoding graphical user interface
 
@@ -10,7 +10,7 @@ Source0:        http://downloads.sourceforge.net/ogmrip/ogmrip-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  gtk2-devel, libglade2-devel, GConf2-devel, libxml2-devel
-BuildRequires:  hal-devel, dbus-glib-devel, enchant-devel, enca-devel
+BuildRequires:  dbus-glib-devel, enchant-devel, enca-devel
 BuildRequires:  libdvdread-devel, libtheora-devel, libvorbis-devel
 BuildRequires:  libtiff-devel
 BuildRequires:  tesseract-devel
@@ -18,15 +18,12 @@ BuildRequires:  libnotify-devel
 BuildRequires:  gettext-devel, intltool
 BuildRequires:  desktop-file-utils
 
-# We patch configure.in
-BuildRequires:  autoconf
-
 # Not technically build required, but configure checks for it...
-Buildrequires:  eject, mplayer, mencoder, ogmtools, vorbis-tools, theora-tools
+Buildrequires:  mplayer, mencoder, ogmtools, vorbis-tools, theora-tools
 BuildRequires:  mkvtoolnix, lame
 
 # Now, all the same as runtime requirements
-Requires: eject, mplayer, mencoder, ogmtools, vorbis-tools, theora-tools
+Requires: mplayer, mencoder, ogmtools, vorbis-tools, theora-tools
 Requires: mkvtoolnix, lame
 Requires: gpac
 Requires: subtitleripper
@@ -64,7 +61,6 @@ Development headers and libraries for ogmrip.
 
 
 %build
-autoconf
 %configure \
     --disable-static \
     --disable-schemas-install \
@@ -139,6 +135,13 @@ fi
 
 
 %changelog
+* Thu Dec 24 2009 Gianluca Sforna <giallu gmail com> - 0.13.3-1
+- New upstream release
+
+* Thu Oct  8 2009 Gianluca Sforna <giallu gmail com> - 0.13.2-1
+- New upstream release
+- drop dependencies on hal-devel and eject
+
 * Mon Sep 21 2009 Gianluca Sforna <giallu gmail com> - 0.13.1-1
 - New upstream release
 - drop upstreamed patches
