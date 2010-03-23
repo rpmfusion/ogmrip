@@ -1,0 +1,13 @@
+diff --git a/libogmrip-gtk/ogmrip-source-chooser-widget.c b/libogmrip-gtk/ogmrip-source-chooser-widget.c
+index 2b56a36..87e69c2 100644
+--- a/libogmrip-gtk/ogmrip-source-chooser-widget.c
++++ b/libogmrip-gtk/ogmrip-source-chooser-widget.c
+@@ -543,7 +543,7 @@ ogmrip_source_chooser_widget_changed (GtkComboBox *combo_box)
+ 
+         toplevel = gtk_widget_get_toplevel (GTK_WIDGET (chooser));
+ 
+-        if (GTK_WIDGET_TOPLEVEL (toplevel) && GTK_IS_WINDOW (toplevel))
++        if (gtk_widget_is_toplevel (toplevel) && GTK_IS_WINDOW (toplevel))
+         {
+           if (GTK_WINDOW (toplevel) != gtk_window_get_transient_for (GTK_WINDOW (chooser->priv->dialog)))
+             gtk_window_set_transient_for (GTK_WINDOW (chooser->priv->dialog), GTK_WINDOW (toplevel));
