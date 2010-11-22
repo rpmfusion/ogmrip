@@ -1,5 +1,5 @@
 Name:           ogmrip
-Version:        0.13.5
+Version:        0.13.6
 Release:        1%{?dist}
 Summary:        DVD ripping and encoding graphical user interface
 
@@ -32,8 +32,6 @@ Requires: tesseract
 Requires(post): GConf2
 Requires(postun): GConf2
 
-#Patch0: ogmrip-0.13.4-build_fix.patch
-
 %description
 OGMRip is an application and a set of libraries for ripping and encoding DVDs
 into AVI, OGM MP4 or Matroska files using a wide variety of codecs. It relies
@@ -59,7 +57,6 @@ Development headers and libraries for ogmrip.
 
 %prep
 %setup -q
-#patch0 -p1
 
 %build
 %configure \
@@ -136,6 +133,9 @@ fi
 
 
 %changelog
+* Sun Nov 21 2010 Gianluca Sforna <giallu@gmail.com> - 0.13.6-1
+- new upstream release
+
 * Fri May 22 2010 Gianluca Sforna <giallu gmail com> - 0.13.5-1
 - new upstream release
 - drop upstreamed patch
