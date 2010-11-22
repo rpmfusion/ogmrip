@@ -1,0 +1,38 @@
+diff -u -r ogmrip-0.13.6.orig/configure.in ogmrip-0.13.6/configure.in
+--- ogmrip-0.13.6.orig/configure.in	2010-08-22 16:55:37.000000000 +0200
++++ ogmrip-0.13.6/configure.in	2010-11-22 22:20:01.841724409 +0100
+@@ -386,7 +386,7 @@
+ 
+ dnl **************************************************************
+ 
+-LIBNOTIFY_REQUIRED=0.4.3
++LIBNOTIFY_REQUIRED=0.7.0
+ 
+ LIBNOTIFY_MODULES="libnotify >= $LIBNOTIFY_REQUIRED"
+ 
+diff -u -r ogmrip-0.13.6.orig/README ogmrip-0.13.6/README
+--- ogmrip-0.13.6.orig/README	2010-08-22 12:38:34.000000000 +0200
++++ ogmrip-0.13.6/README	2010-11-22 22:20:19.409629410 +0100
+@@ -48,7 +48,7 @@
+ 
+     For notification support:
+         
+-        libnotify >= 0.4.3:  http://www.galago-project.org
++        libnotify >= 0.7.0:  http://www.galago-project.org
+ 
+     For Ogg Media support:
+ 
+diff -u -r ogmrip-0.13.6.orig/src/ogmrip-progress-dialog.c ogmrip-0.13.6/src/ogmrip-progress-dialog.c
+--- ogmrip-0.13.6.orig/src/ogmrip-progress-dialog.c	2010-08-22 12:38:28.000000000 +0200
++++ ogmrip-0.13.6/src/ogmrip-progress-dialog.c	2010-11-22 22:15:18.804253123 +0100
+@@ -418,8 +418,7 @@
+   g_signal_connect_swapped (dialog->priv->status_icon, "popup_menu",
+       G_CALLBACK (ogmrip_progress_dialog_status_icon_popup_menu), dialog);
+ 
+-  dialog->priv->notification = notify_notification_new_with_status_icon ("Dummy", "Dummy",
+-      OGMRIP_DATA_DIR G_DIR_SEPARATOR_S OGMRIP_ICON_FILE, dialog->priv->status_icon);
++  dialog->priv->notification = notify_notification_new ("Dummy", "Dummy", NULL);
+   g_signal_connect (dialog, "window-state-event",
+       G_CALLBACK (ogmrip_progress_dialog_state_changed), NULL);
+ 
+Only in ogmrip-0.13.6/src: .ogmrip-progress-dialog.c.swp

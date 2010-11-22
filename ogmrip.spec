@@ -1,5 +1,5 @@
 Name:           ogmrip
-Version:        0.13.5
+Version:        0.13.6
 Release:        1%{?dist}
 Summary:        DVD ripping and encoding graphical user interface
 
@@ -32,7 +32,9 @@ Requires: tesseract
 Requires(post): GConf2
 Requires(postun): GConf2
 
-#Patch0: ogmrip-0.13.4-build_fix.patch
+# These were patches were sent upstream in ogmrip-devel ML
+Patch0: ogmrip-0.13.6-gtk3_build_fix.patch
+Patch1: ogmrip-0.13.6-libnotify07-compatibility.patch
 
 %description
 OGMRip is an application and a set of libraries for ripping and encoding DVDs
@@ -59,7 +61,8 @@ Development headers and libraries for ogmrip.
 
 %prep
 %setup -q
-#patch0 -p1
+%patch0 -p1
+%patch1 -p1
 
 %build
 %configure \
@@ -136,6 +139,10 @@ fi
 
 
 %changelog
+* Sun Nov 21 2010 Gianluca Sforna <giallu@gmail.com> - 0.13.6-1
+- new upstream release
+- Fix build with GTK3 and libnotify 0.7
+
 * Fri May 22 2010 Gianluca Sforna <giallu gmail com> - 0.13.5-1
 - new upstream release
 - drop upstreamed patch
