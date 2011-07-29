@@ -69,7 +69,6 @@ Development headers and libraries for ogmrip.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 %patch2 -p0
 %patch3 -p0
 
