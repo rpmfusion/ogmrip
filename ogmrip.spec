@@ -1,6 +1,6 @@
 Name:           ogmrip
 Version:        0.13.6
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        DVD ripping and encoding graphical user interface
 
 Group:          Applications/Multimedia
@@ -32,6 +32,17 @@ Requires: tesseract
 Requires(post): GConf2
 Requires(postun): GConf2
 
+# These patches were sent upstream in ogmrip-devel ML
+Patch0: ogmrip-0.13.6-gtk3_build_fix.patch
+Patch1: ogmrip-0.13.6-libnotify07-compatibility.patch
+
+# Took from http://sourceforge.net/tracker/?func=detail&aid=3065523&group_id=75595&atid=544487
+Patch2: ogmrip-0.13.6-audio-quality.patch
+
+# Upstream contacted:
+# http://sourceforge.net/mailarchive/forum.php?thread_name=CAP0i4rfD0MUX0hdVeZYa4vmLfwSQNDDRm%3DZUJ8ScxzAhtNDkgA%40mail.gmail.com&forum_name=ogmrip-devel
+Patch3: ogmrip-0.13.6-g_const_return_deprecated.patch
+
 %description
 OGMRip is an application and a set of libraries for ripping and encoding DVDs
 into AVI, OGM MP4 or Matroska files using a wide variety of codecs. It relies
@@ -57,6 +68,10 @@ Development headers and libraries for ogmrip.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
+%patch2 -p0
+%patch3 -p0
 
 %build
 %configure \
@@ -104,7 +119,6 @@ fi
 %postun -p /sbin/ldconfig
 
 
-
 %files -f %{name}.lang
 %defattr(-,root,root,-)
 %doc AUTHORS COPYING ChangeLog README TODO
@@ -133,8 +147,13 @@ fi
 
 
 %changelog
+* Tue Jul 26 2011 Gianluca Sforna <giallu@gmail.com> - 0.13.6-2
+- Fix build with newer GLib
+- Fix preferences bug with upstream patch
+
 * Sun Nov 21 2010 Gianluca Sforna <giallu@gmail.com> - 0.13.6-1
 - new upstream release
+- Fix build with GTK3 and libnotify 0.7
 
 * Fri May 22 2010 Gianluca Sforna <giallu gmail com> - 0.13.5-1
 - new upstream release
