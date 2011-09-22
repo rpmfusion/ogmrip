@@ -1,6 +1,6 @@
 Name:           ogmrip
-Version:        0.13.6
-Release:        2%{?dist}
+Version:        0.13.7
+Release:        1%{?dist}
 Summary:        DVD ripping and encoding graphical user interface
 
 Group:          Applications/Multimedia
@@ -32,16 +32,6 @@ Requires: tesseract
 Requires(post): GConf2
 Requires(postun): GConf2
 
-# These patches were sent upstream in ogmrip-devel ML
-Patch0: ogmrip-0.13.6-gtk3_build_fix.patch
-Patch1: ogmrip-0.13.6-libnotify07-compatibility.patch
-
-# Took from http://sourceforge.net/tracker/?func=detail&aid=3065523&group_id=75595&atid=544487
-Patch2: ogmrip-0.13.6-audio-quality.patch
-
-# Upstream contacted:
-# http://sourceforge.net/mailarchive/forum.php?thread_name=CAP0i4rfD0MUX0hdVeZYa4vmLfwSQNDDRm%3DZUJ8ScxzAhtNDkgA%40mail.gmail.com&forum_name=ogmrip-devel
-Patch3: ogmrip-0.13.6-g_const_return_deprecated.patch
 
 %description
 OGMRip is an application and a set of libraries for ripping and encoding DVDs
@@ -68,10 +58,6 @@ Development headers and libraries for ogmrip.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p0
-%patch3 -p0
 
 %build
 %configure \
@@ -147,6 +133,10 @@ fi
 
 
 %changelog
+* Thu Sep 22 2011 Gianluca Sforna <giallu@gmail.com> - 0.13.7-1
+- new upstream release
+- drop upstreamed patches
+
 * Tue Jul 26 2011 Gianluca Sforna <giallu@gmail.com> - 0.13.6-2
 - Fix build with newer GLib
 - Fix preferences bug with upstream patch
