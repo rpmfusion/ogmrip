@@ -1,6 +1,6 @@
 Name:           ogmrip
 Version:        0.13.7
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        DVD ripping and encoding graphical user interface
 
 Group:          Applications/Multimedia
@@ -133,6 +133,9 @@ fi
 
 
 %changelog
+* Wed Jan 25 2012 Nicolas Chauvet <kwizart@gmail.com> - 0.13.7-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
+
 * Thu Sep 22 2011 Gianluca Sforna <giallu@gmail.com> - 0.13.7-1
 - new upstream release
 - drop upstreamed patches
