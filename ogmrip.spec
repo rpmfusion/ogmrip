@@ -1,6 +1,6 @@
 Name:           ogmrip
 Version:        0.13.7
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        DVD ripping and encoding graphical user interface
 
 Group:          Applications/Multimedia
@@ -26,7 +26,7 @@ BuildRequires:  mkvtoolnix, lame
 Requires: mplayer, mencoder, ogmtools, vorbis-tools, theora-tools
 Requires: mkvtoolnix, lame
 Requires: gpac
-Requires: subtitleripper
+#Requires: subtitleripper - orphaned
 Requires: tesseract
 
 Requires(post): GConf2
@@ -133,6 +133,9 @@ fi
 
 
 %changelog
+* Tue May 15 2012 Nicolas Chauvet <kwizart@gmail.com> - 0.13.7-3
+- Orphan subtitleripper
+
 * Wed Jan 25 2012 Nicolas Chauvet <kwizart@gmail.com> - 0.13.7-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
 
