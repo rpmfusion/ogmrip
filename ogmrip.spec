@@ -1,6 +1,6 @@
 Name:           ogmrip
-Version:        0.13.7
-Release:        3%{?dist}
+Version:        0.13.8
+Release:        1%{?dist}
 Summary:        DVD ripping and encoding graphical user interface
 
 Group:          Applications/Multimedia
@@ -26,7 +26,6 @@ BuildRequires:  mkvtoolnix, lame
 Requires: mplayer, mencoder, ogmtools, vorbis-tools, theora-tools
 Requires: mkvtoolnix, lame
 Requires: gpac
-#Requires: subtitleripper - orphaned
 Requires: tesseract
 
 Requires(post): GConf2
@@ -133,6 +132,9 @@ fi
 
 
 %changelog
+* Sat May 19 2012 Gianluca Sforna <giallu@gmail.com> - 0.13.8-1
+- new upstream release
+
 * Tue May 15 2012 Nicolas Chauvet <kwizart@gmail.com> - 0.13.7-3
 - Orphan subtitleripper
 
