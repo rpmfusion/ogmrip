@@ -1,6 +1,6 @@
 Name:           ogmrip
 Version:        0.13.8
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        DVD ripping and encoding graphical user interface
 
 Group:          Applications/Multimedia
@@ -44,7 +44,7 @@ Summary: Development files for ogmrip
 Group: Development/Libraries
 Requires: %{name} = %{version}-%{release}
 Requires:  gtk2-devel, libglade2-devel, GConf2-devel, libxml2-devel
-Requires:  hal-devel, dbus-glib-devel, enchant-devel, enca-devel
+Requires:  dbus-glib-devel, enchant-devel, enca-devel
 Requires:  libdvdread-devel, libtheora-devel, libvorbis-devel
 Requires:  libtiff-devel
 Requires:  tesseract-devel
@@ -132,6 +132,9 @@ fi
 
 
 %changelog
+* Wed Jun 13 2012 Gianluca Sforna <giallu@gmail.com> - 0.13.8-2
+- remove hal-devel dep from -devel package
+
 * Sat May 19 2012 Gianluca Sforna <giallu@gmail.com> - 0.13.8-1
 - new upstream release
 
