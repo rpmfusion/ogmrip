@@ -1,6 +1,6 @@
 Name:           ogmrip
-Version:        0.13.8
-Release:        2%{?dist}
+Version:        1.0.0
+Release:        1%{?dist}
 Summary:        DVD ripping and encoding graphical user interface
 
 Group:          Applications/Multimedia
@@ -132,6 +132,12 @@ fi
 
 
 %changelog
+* Thu Mar 14 2013 Gianluca Sforna <giallu@gmail.com> - 1.0.0-1
+- new upstream release
+
+* Sun Mar 03 2013 Nicolas Chauvet <kwizart@gmail.com> - 0.13.8-3
+- Mass rebuilt for Fedora 19 Features
+
 * Wed Jun 13 2012 Gianluca Sforna <giallu@gmail.com> - 0.13.8-2
 - remove hal-devel dep from -devel package
 
