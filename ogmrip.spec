@@ -1,6 +1,6 @@
 Name:           ogmrip
 Version:        1.0.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        DVD ripping and encoding graphical user interface
 
 Group:          Applications/Multimedia
@@ -132,6 +132,9 @@ fi
 
 
 %changelog
+* Mon May 27 2013 Nicolas Chauvet <kwizart@gmail.com> - 1.0.0-2
+- Rebuilt for x264/FFmpeg
+
 * Thu Mar 14 2013 Gianluca Sforna <giallu@gmail.com> - 1.0.0-1
 - new upstream release
 
