@@ -1,6 +1,6 @@
 Name:           ogmrip
 Version:        1.0.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        DVD ripping and encoding graphical user interface
 
 Group:          Applications/Multimedia
@@ -31,6 +31,9 @@ Requires: tesseract
 Requires(post): GConf2
 Requires(postun): GConf2
 
+#from upstream https://sourceforge.net/p/ogmrip/patches/41/
+Patch0:     ogmrip-1.0-option-testing.patch 
+
 
 %description
 OGMRip is an application and a set of libraries for ripping and encoding DVDs
@@ -57,6 +60,7 @@ Development headers and libraries for ogmrip.
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 %configure \
@@ -132,6 +136,9 @@ fi
 
 
 %changelog
+* Mon Feb  3 2014 Gianluca Sforna <giallu@gmail.com> - 1.0.0-3
+- add upstream patch for startup hang (#3124)
+
 * Mon May 27 2013 Nicolas Chauvet <kwizart@gmail.com> - 1.0.0-2
 - Rebuilt for x264/FFmpeg
 
@@ -165,7 +172,7 @@ fi
 - new upstream release
 - Fix build with GTK3 and libnotify 0.7
 
-* Fri May 22 2010 Gianluca Sforna <giallu gmail com> - 0.13.5-1
+* Fri May 21 2010 Gianluca Sforna <giallu gmail com> - 0.13.5-1
 - new upstream release
 - drop upstreamed patch
 
