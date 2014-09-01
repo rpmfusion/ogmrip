@@ -1,6 +1,6 @@
 Name:           ogmrip
 Version:        1.0.0
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        DVD ripping and encoding graphical user interface
 
 Group:          Applications/Multimedia
@@ -136,6 +136,9 @@ fi
 
 
 %changelog
+* Mon Sep 01 2014 Sérgio Basto <sergio@serjux.com> - 1.0.0-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
+
 * Mon Feb  3 2014 Gianluca Sforna <giallu@gmail.com> - 1.0.0-3
 - add upstream patch for startup hang (#3124)
 
