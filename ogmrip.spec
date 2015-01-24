@@ -1,6 +1,6 @@
 Name:           ogmrip
-Version:        1.0.0
-Release:        3%{?dist}
+Version:        1.0.1
+Release:        1%{?dist}
 Summary:        DVD ripping and encoding graphical user interface
 
 Group:          Applications/Multimedia
@@ -31,9 +31,6 @@ Requires: tesseract
 Requires(post): GConf2
 Requires(postun): GConf2
 
-#from upstream https://sourceforge.net/p/ogmrip/patches/41/
-Patch0:     ogmrip-1.0-option-testing.patch 
-
 
 %description
 OGMRip is an application and a set of libraries for ripping and encoding DVDs
@@ -60,7 +57,7 @@ Development headers and libraries for ogmrip.
 
 %prep
 %setup -q
-%patch0 -p0
+#%patch0 -p0
 
 %build
 %configure \
@@ -136,6 +133,13 @@ fi
 
 
 %changelog
+* Thu Jan 15 2015 Thomas Björklund <tb@ludd.ltu.se> - 1.0.1-1
+- new upstream release
+- drop upstreamed patches
+
+* Mon Sep 01 2014 Sérgio Basto <sergio@serjux.com> - 1.0.0-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
+
 * Mon Feb  3 2014 Gianluca Sforna <giallu@gmail.com> - 1.0.0-3
 - add upstream patch for startup hang (#3124)
 
