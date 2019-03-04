@@ -1,6 +1,6 @@
 Name:           ogmrip
 Version:        1.0.1
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        DVD ripping and encoding graphical user interface
 
 Group:          Applications/Multimedia
@@ -133,6 +133,9 @@ fi
 
 
 %changelog
+* Mon Mar 04 2019 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 1.0.1-7
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
 * Sun Aug 19 2018 Leigh Scott <leigh123linux@googlemail.com> - 1.0.1-6
 - Rebuilt for Fedora 29 Mass Rebuild binutils issue
 
