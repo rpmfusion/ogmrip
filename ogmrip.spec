@@ -3,11 +3,9 @@ Version:        1.0.1
 Release:        7%{?dist}
 Summary:        DVD ripping and encoding graphical user interface
 
-Group:          Applications/Multimedia
 License:        GPLv2+
 URL:            http://ogmrip.sourceforge.net/
 Source0:        http://downloads.sourceforge.net/ogmrip/ogmrip-%{version}.tar.gz
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  gtk2-devel, libglade2-devel, GConf2-devel, libxml2-devel
 BuildRequires:  dbus-glib-devel, enchant-devel, enca-devel
@@ -15,7 +13,7 @@ BuildRequires:  libdvdread-devel, libtheora-devel, libvorbis-devel
 BuildRequires:  libtiff-devel
 BuildRequires:  tesseract-devel
 BuildRequires:  libnotify-devel
-BuildRequires:  gettext-devel, intltool
+BuildRequires:  gettext-devel, intltool, gcc
 BuildRequires:  desktop-file-utils
 
 # Not technically build required, but configure checks for it...
@@ -41,8 +39,7 @@ its tasks.
 
 %package devel
 Summary: Development files for ogmrip
-Group: Development/Libraries
-Requires: %{name} = %{version}-%{release}
+Requires: %{name}%{?_isa} = %{version}-%{release}
 Requires:  gtk2-devel, libglade2-devel, GConf2-devel, libxml2-devel
 Requires:  dbus-glib-devel, enchant-devel, enca-devel
 Requires:  libdvdread-devel, libtheora-devel, libvorbis-devel
@@ -72,7 +69,6 @@ make %{?_smp_mflags}
 
 
 %install
-rm -rf %{buildroot}
 make install DESTDIR=%{buildroot}
 %find_lang %{name}
 
@@ -83,10 +79,6 @@ desktop-file-install \
     --delete-original \
     --dir=%{buildroot}%{_datadir}/applications \
     %{buildroot}/%{_datadir}/applications/ogmrip.desktop
-
-
-%clean
-rm -rf %{buildroot}
 
 
 %post
