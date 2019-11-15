@@ -1,6 +1,6 @@
 Name:           ogmrip
 Version:        1.0.1
-Release:        8%{?dist}
+Release:        9%{?dist}
 Summary:        DVD ripping and encoding graphical user interface
 
 License:        GPLv2+
@@ -125,6 +125,9 @@ fi
 
 
 %changelog
+* Fri Nov 15 2019 Dominik 'Rathann' Mierzejewski <rpm@greysector.net> - 1.0.1-9
+- rebuild for libdvdread ABI bump
+
 * Fri Aug 09 2019 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 1.0.1-8
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
