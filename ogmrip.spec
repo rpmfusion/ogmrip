@@ -1,6 +1,6 @@
 Name:           ogmrip
 Version:        1.0.1
-Release:        16%{?dist}
+Release:        17%{?dist}
 Summary:        DVD ripping and encoding graphical user interface
 
 License:        GPLv2+
@@ -17,11 +17,11 @@ BuildRequires:  gettext-devel, intltool, gcc
 BuildRequires:  desktop-file-utils
 
 # Not technically build required, but configure checks for it...
-Buildrequires:  mplayer, mencoder, ogmtools, vorbis-tools, theora-tools
+Buildrequires:  mplayer, mencoder, vorbis-tools, theora-tools
 BuildRequires:  mkvtoolnix, lame
 
 # Now, all the same as runtime requirements
-Requires: mplayer, mencoder, ogmtools, vorbis-tools, theora-tools
+Requires: mplayer, mencoder, vorbis-tools, theora-tools
 Requires: mkvtoolnix, lame
 Requires: gpac
 Requires: tesseract
@@ -33,7 +33,7 @@ Requires(postun): GConf2
 %description
 OGMRip is an application and a set of libraries for ripping and encoding DVDs
 into AVI, OGM MP4 or Matroska files using a wide variety of codecs. It relies
-on mplayer, mencoder, ogmtools, mkvtoolnix, oggenc, lame and faac to perform
+on mplayer, mencoder, mkvtoolnix, oggenc, lame and faac to perform
 its tasks.
 
 
@@ -53,8 +53,7 @@ Development headers and libraries for ogmrip.
 
 
 %prep
-%setup -q
-#%patch0 -p0
+%autosetup
 
 %build
 %configure \
@@ -65,11 +64,11 @@ Development headers and libraries for ogmrip.
 sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
 sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
 
-make %{?_smp_mflags}
+%make_build
 
 
 %install
-make install DESTDIR=%{buildroot}
+%make_install
 %find_lang %{name}
 
 # Remove useless files
@@ -82,7 +81,6 @@ desktop-file-install \
 
 
 %post
-/sbin/ldconfig
 export GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source`
 gconftool-2 --makefile-install-rule \
     %{_sysconfdir}/gconf/schemas/ogmrip.schemas &>/dev/null || :
@@ -94,12 +92,10 @@ if [ "$1" -eq 0 ]; then
         %{_sysconfdir}/gconf/schemas/ogmrip.schemas &>/dev/null || :
 fi
 
-%postun -p /sbin/ldconfig
-
 
 %files -f %{name}.lang
-%defattr(-,root,root,-)
-%doc AUTHORS COPYING ChangeLog README TODO
+%doc AUTHORS ChangeLog README TODO
+%license COPYING
 %{_sysconfdir}/gconf/schemas/ogmrip.schemas
 %{_bindir}/dvdcpy
 %{_bindir}/avibox
@@ -118,13 +114,15 @@ fi
 %{_mandir}/man1/*.1*
 
 %files devel
-%defattr(-,root,root,-)
 %{_includedir}/*
 %{_libdir}/pkgconfig/*.pc
 %{_libdir}/*.so
 
 
 %changelog
+* Thu Feb 02 2023 Leigh Scott <leigh123linux@gmail.com> - 1.0.1-17
+- Drop ogmtools requirement due to fedora retirement
+
 * Sun Aug 07 2022 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 1.0.1-16
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild and ffmpeg
   5.1
