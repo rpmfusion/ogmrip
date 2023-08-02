@@ -1,6 +1,6 @@
 Name:           ogmrip
 Version:        1.0.1
-Release:        17%{?dist}
+Release:        18%{?dist}
 Summary:        DVD ripping and encoding graphical user interface
 
 License:        GPLv2+
@@ -120,6 +120,9 @@ fi
 
 
 %changelog
+* Wed Aug 02 2023 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 1.0.1-18
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_39_Mass_Rebuild
+
 * Thu Feb 02 2023 Leigh Scott <leigh123linux@gmail.com> - 1.0.1-17
 - Drop ogmtools requirement due to fedora retirement
 
