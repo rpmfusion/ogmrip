@@ -1,6 +1,6 @@
 Name:           ogmrip
 Version:        1.0.1
-Release:        22%{?dist}
+Release:        23%{?dist}
 Summary:        DVD ripping and encoding graphical user interface
 
 License:        GPLv2+
@@ -120,6 +120,9 @@ fi
 
 
 %changelog
+* Mon Feb 02 2026 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 1.0.1-23
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_44_Mass_Rebuild
+
 * Sun Jul 27 2025 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 1.0.1-22
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_43_Mass_Rebuild
 
